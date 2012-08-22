@@ -85,7 +85,7 @@ More Information about Parameters and calls : https://bitpay.com/help-api
 
 
 
-# getInvoice(apikey,invoiceID)
+#getInvoice(apikey,invoiceID)
 
 #example call : Bpruby::Bplib.getInvoice('XXXXXXXXXXYOURAPIKEYHERE','T11zE6Xmoz4rK1qq5ktalduPTUO9C9V9NN-BBEpv58o=')
 
