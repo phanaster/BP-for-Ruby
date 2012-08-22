@@ -38,32 +38,32 @@ Example Call :
 	 :buyerAddress1 =>'On the',
 	 :buyerAddress2 =>'Teststreet')
 
-Required Parameters : 
+*Required Parameters : 
 
-  Api-Key : Obtainable in your Bitpay Merchant Account
- Price : This is the amount that is required to be collected from the
-buyer. Note, if this is specified in a currency other than BTC,
-the price will be converted into BTC at market exchange
-rates to determine the amount collected from the buyer.
- orderID : Used to display an orderID to the buyer. In the account
-summary view, this value is used to identify a ledger entry if
-present.
-- posData : This content of this field is included in status updates or
-requests to get an invoice. It is intended to be used by
-the merchant to uniquely identify an order associated with
-an invoice in their system. Aside from that, Bit-Pay does
-not use the data in this field. The data in this field can be
-anything that is meaningful to the merchant
+ 1. Api-Key : Obtainable in your Bitpay Merchant Account
+ 2. Price : This is the amount that is required to be collected from the
+   buyer. Note, if this is specified in a currency other than BTC,
+   the price will be converted into BTC at market exchange
+   rates to determine the amount collected from the buyer.
+ 3. orderID : Used to display an orderID to the buyer. In the account
+   summary view, this value is used to identify a ledger entry if
+   present.
+ 4. posData : This content of this field is included in status updates or
+   requests to get an invoice. It is intended to be used by
+   the merchant to uniquely identify an order associated with
+   an invoice in their system. Aside from that, Bit-Pay does
+   not use the data in this field. The data in this field can be
+   anything that is meaningful to the merchant
 
  * Parameters that are required but are already set to a default :
 
    *  ´:currency => BTC#´ ,can be overwritten if needed. Currently BTC and USD supported. Get more infos from Bitpay.
 
- + Optional Parameters : 
+  Optional Parameters : 
 
-   + ´:itemDesc ,:itemCode, :notificationEmail, :notificationURL, :redirectURL,´
-   + ´:currency, :physical, :fullNotifications, :transactionSpeed, :buyerName,´
-   + ´:buyerAddress1, :buyerAddress2, :buyerCity, :buyerState, :buyerZip, :buyerEmail, :buyerPhone´
+    ´:itemDesc ,:itemCode, :notificationEmail, :notificationURL, :redirectURL,´
+    ´:currency, :physical, :fullNotifications, :transactionSpeed, :buyerName,´
+    ´:buyerAddress1, :buyerAddress2, :buyerCity, :buyerState, :buyerZip, :buyerEmail, :buyerPhone´
 
    
    
