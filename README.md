@@ -25,17 +25,18 @@ There are two methods available :
 	createInvoice(apikey,price,orderId,posData,options={})
 
 Example Call :
-    Bpruby::Bplib.createInvoice(
-	'XXXXAPIKEYHERE',
-	15.40,
-	'333',
-	'230928307203',
-	:transactionSpeed => 'high',
-	:itemDesc =>'Test',
-	:currency => 'USD',
-	:buyerEmail =>'test@bitpay.com',
-	:buyerAddress1 =>'On the',
-	:buyerAddress2 =>'Teststreet')
+
+     Bpruby::Bplib.createInvoice(
+	 'XXXXAPIKEYHERE',
+	 15.40,
+	 '333',
+	 '230928307203',
+	 :transactionSpeed => 'high',
+	 :itemDesc =>'Test',
+	 :currency => 'USD',
+	 :buyerEmail =>'test@bitpay.com',
+	 :buyerAddress1 =>'On the',
+	 :buyerAddress2 =>'Teststreet')
 
 Required Parameters : 
 
@@ -89,7 +90,8 @@ More Information about Parameters and calls : https://bitpay.com/help-api
 	getInvoice(apikey,invoiceID)
 
 example call : 
-	Bpruby::Bplib.getInvoice('XXXXXXXXXXYOURAPIKEYHERE','T11zE6Xmoz4rK1qq5ktalduPTUO9C9V9NN-BBEpv58o=')
+
+	 Bpruby::Bplib.getInvoice('XXXXXXXXXXYOURAPIKEYHERE','T11zE6Xmoz4rK1qq5ktalduPTUO9C9V9NN-BBEpv58o=')
 
 To get the current state of an invoice, an http GET request can be sent to https://bitpay.com/api/invoice/
 <id> where the id is the invoice id provided when the invoice was created. The format of the response is
