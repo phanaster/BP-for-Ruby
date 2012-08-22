@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'bpruby'
+
+puts Bpruby::Bplib.createInvoice('JRcbOrlCYNhMFDfYygX3NSHypUibMZzC59v15P95AQg',0.14,'45','85',:transactionSpeed => 'high',:itemDesc =>'Test',:currency => 'USD',:buyerEmail =>'gekuesst@googlemail.com',:buyerAddress1 =>'Hinterm',:buyerAddress2 =>'Testheim')
+
+puts Bpruby::Bplib.getInvoice('JRcbOrlCYNhMFDfYygX3NSHypUibMZzC59v15P95AQg','T11zE6Xmoz4rK1qq5ktalduPTUO9C9V9NN-BBEpv58o=')
