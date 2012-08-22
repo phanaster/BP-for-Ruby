@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Bp-for-ruby by phanaster</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Bp-for-ruby</h1>
+        <p>A Gem for easy Access to the Payment Api of Bitpay.</p>
+
+        <p class="view"><a href="https://github.com/phanaster/BP-for-Ruby">View the Project on GitHub <small>phanaster/BP-for-Ruby</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/phanaster/BP-for-Ruby/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/phanaster/BP-for-Ruby/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/phanaster/BP-for-Ruby">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Bpruby</h1>
+
+<p>This Gem is for making easy Api-Calls to the Bitpay.com Payment Api.
+It currently supports Creating an Invoice and getting the Status of an Invoice.</p>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre><code>gem 'bpruby'
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install bpruby
+</code></pre>
+
+<h2>Usage</h2>
+
+<p>There are two methods available :</p>
+
+<pre><code>createInvoice(apikey,price,orderId,posData,options={})
+</code></pre>
+
+<p>Example Call :</p>
+
+<pre><code> response = Bpruby::Bplib.createInvoice(
+ 'XXXXAPIKEYHERE',
+ 15.40,
+ '333',
+ '230928307203',
+ :transactionSpeed =&gt; 'high',
+ :itemDesc =&gt;'Test',
+ :currency =&gt; 'USD',
+ :buyerEmail =&gt;'test@bitpay.com',
+ :buyerAddress1 =&gt;'On the',
+ :buyerAddress2 =&gt;'Teststreet')
+</code></pre>
+
+<p>*Required Parameters : </p>
+
+<ol>
+<li>Api-Key : Obtainable in your Bitpay Merchant Account</li>
+<li>Price : This is the amount that is required to be collected from the
+buyer. Note, if this is specified in a currency other than BTC,
+the price will be converted into BTC at market exchange
+rates to determine the amount collected from the buyer.</li>
+<li>orderID : Used to display an orderID to the buyer. In the account
+summary view, this value is used to identify a ledger entry if
+present.</li>
+<li>posData : This content of this field is included in status updates or
+requests to get an invoice. It is intended to be used by
+the merchant to uniquely identify an order associated with
+an invoice in their system. Aside from that, Bit-Pay does
+not use the data in this field. The data in this field can be
+anything that is meaningful to the merchant</li>
+</ol><ul>
+<li>
+<p>Parameters that are required but are already set to a default :</p>
+
+<ul>
+<li> <code>:currency =&gt; BTC</code> ,can be overwritten if needed. Currently BTC and USD supported. Get more infos from Bitpay.</li>
+</ul>
+<p>Optional Parameters : </p>
+
+<p><code>:itemDesc ,:itemCode, :notificationEmail, :notificationURL, :redirectURL,</code>
+<code>:currency, :physical, :fullNotifications, :transactionSpeed, :buyerName,</code>
+<code>:buyerAddress1, :buyerAddress2, :buyerCity, :buyerState, :buyerZip, :buyerEmail, :buyerPhone</code></p>
+</li>
+<li>
+<p>The Method returns a Json-Object with the following Information :</p>
+
+<ul>
+<li>id  : The unique id of the invoice.</li>
+<li>url : An https URL where the invoice can be viewed.</li>
+<li>posData : A data field provided by the merchant and designed to be used by the merchant to correlate : the invoice with an order or other object in their system.</li>
+<li>status  : The current invoice status. The possible states are described earlier in this document.</li>
+<li>btcPrice : The amount of bitcoins being requested for payment of this invoice (same as the price if
+     the merchant set the price in BTC).</li>
+<li>price  : The price set by the merchant (in terms of the provided currency).</li>
+<li>currency : The 3 letter currency code in which the invoice was priced.</li>
+<li>invoiceTime : The time the invoice was created in milliseconds since midnight January 1, 1970.</li>
+<li>expirationTime : The time at which the invoice expires and no further payment will be accepted (in</li>
+<li>milliseconds : since midnight January 1, 1970). Currently, all invoices are valid for 15
+         minutes.</li>
+<li>currentTime : The current time on the Bit-Pay.com system (by subtracting the current time from the</li>
+<li>expiration  : time, the amount of time remaining for payment can be determined).</li>
+</ul>
+</li>
+</ul><p>More Information about Parameters and calls : <a href="https://bitpay.com/help-api">https://bitpay.com/help-api</a></p>
+
+<pre><code>getInvoice(apikey,invoiceID)
+</code></pre>
+
+<p>example call : </p>
+
+<pre><code>  response = Bpruby::Bplib.getInvoice('XXXXXXXXXXYOURAPIKEYHERE','T11zE6Xmoz4rK1qq5ktalduPTUO9C9V9NN-BBEpv58o=')
+</code></pre>
+
+<p>To get the current state of an invoice, an http GET request can be sent to <a href="https://bitpay.com/api/invoice/">https://bitpay.com/api/invoice/</a>
+ where the id is the invoice id provided when the invoice was created. The format of the response is
+exactly the same as that which is returned when creating an invoice.</p>
+
+<h2>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Added some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol><h2>About me :</h2>
+
+<p>I am a Ruby Newbie and i like to try ideas. If i have fundamental flaws or when i'm missing best practices please tell me , i am eager to learn !</p>
+
+<h2>I like Cookies and Bitcoins :</h2>
+
+<p>If you want to help me out , figure a creative way to send me a cookie or spare a Bitcent to this adress , so i can get the cookie myself :
+     <code>1Phantadn1nq1ZuxYc3rzqNgxKPxMdM2oQ</code></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/phanaster">phanaster</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
