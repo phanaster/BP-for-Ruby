@@ -57,13 +57,13 @@ Example Call :
 
  * Parameters that are required but are already set to a default :
 
-   *  ´:currency => BTC#´ ,can be overwritten if needed. Currently BTC and USD supported. Get more infos from Bitpay.
+   *  `:currency => BTC` ,can be overwritten if needed. Currently BTC and USD supported. Get more infos from Bitpay.
 
   Optional Parameters : 
 
-    ´:itemDesc ,:itemCode, :notificationEmail, :notificationURL, :redirectURL,´
-    ´:currency, :physical, :fullNotifications, :transactionSpeed, :buyerName,´
-    ´:buyerAddress1, :buyerAddress2, :buyerCity, :buyerState, :buyerZip, :buyerEmail, :buyerPhone´
+    `:itemDesc ,:itemCode, :notificationEmail, :notificationURL, :redirectURL,`
+    `:currency, :physical, :fullNotifications, :transactionSpeed, :buyerName,`
+    `:buyerAddress1, :buyerAddress2, :buyerCity, :buyerState, :buyerZip, :buyerEmail, :buyerPhone`
 
    
    
