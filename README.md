@@ -101,3 +101,8 @@ exactly the same as that which is returned when creating an invoice.
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## About me :
+
+I am a Ruby Newbie and i like to try ideas. If i have fundamental flaws or when i'm missing best practices please tell me , i am eager to learn !
+
