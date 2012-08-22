@@ -57,14 +57,18 @@ anything that is meaningful to the merchant
 
  * Parameters that are required but are already set to a default :
 
-   *  `:currency => BTC ,can be overwritten if needed. Currently BTC and USD supported. Get more infos from Bitpay.´
+   *  ´:currency => BTC#´ ,can be overwritten if needed. Currently BTC and USD supported. Get more infos from Bitpay.
 
- * Optional Parameters : 
+ + Optional Parameters : 
 
-   * `:itemDesc ,:itemCode, :notificationEmail, :notificationURL, :redirectURL,´
-   * `:currency, :physical, :fullNotifications, :transactionSpeed, :buyerName,´
-   * `:buyerAddress1, :buyerAddress2, :buyerCity, :buyerState, :buyerZip, :buyerEmail, :buyerPhone´
+   + ´:itemDesc ,:itemCode, :notificationEmail, :notificationURL, :redirectURL,´
+   + ´:currency, :physical, :fullNotifications, :transactionSpeed, :buyerName,´
+   + ´:buyerAddress1, :buyerAddress2, :buyerCity, :buyerState, :buyerZip, :buyerEmail, :buyerPhone´
 
+   
+   
+   
+   
  * The Method returns a Json-Object with the following Information :
 
    * id  : The unique id of the invoice.
