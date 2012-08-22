@@ -12,10 +12,7 @@ module Bpruby
   def self.createInvoice(apikey,price,orderId,posData,options={})
      
 	 defaultoptions ||= {                
-	            :currency => 'BTC' ,
-            	:notificationEmail => '',
-				:notificationURL => '', 
-				:redirectURL => '',  
+	            :currency => 'BTC' ,  
 				:physical => 'true', 
 				:fullNotifications => 'true', 
 				:transactionSpeed => 'low', 
